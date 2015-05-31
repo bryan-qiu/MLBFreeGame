@@ -1,5 +1,46 @@
 <?php
 
+	function connectToDatabase() {
+		/*$link = mysqli_connect('localhost', 'admin', 'password','mlbfree');
+		if (!$link) {
+		    die('Could not connect: ' . mysql_error());
+		}
+		echo 'Connected successfully';
+
+		$sql = "INSERT INTO games (id, game, date) VALUES (1, 'Blue Jays - Blue Jays', '2015-06-03')";
+
+		if (mysqli_query($conn, $sql)) {
+		    echo "New record created successfully";
+		} else {
+		    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		}
+
+		mysqli_close($link);*/
+		$host = "localhost";
+		$username = "admin";
+		$password = "password";
+		$dbname = "mlbfree";
+
+		@ $db = new mysqli($host, $username, $password, $dbname);
+
+		if(mysqli_connect_errno())
+		{
+		    die("Connection could not be established");
+		}
+
+		$query = "SELECT game FROM games";// WHERE id = 1";
+		$result = $db->query($query);
+
+		$total_num_rows = $result->num_rows;
+
+		echo "The Results Are : <br>";
+
+		while($row = $result->fetch_array())
+		{
+		    echo $row['game'];
+		}
+	}
+
 	// Gets free game from MLB
 	function getFreeGame($url) {
 		//http://www.mlb.com/mediacenter/#date=5/29/2015
