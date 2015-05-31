@@ -1,45 +1,6 @@
 <?php
 
-	function connectToDatabase() {
-		/*$link = mysqli_connect('localhost', 'admin', 'password','mlbfree');
-		if (!$link) {
-		    die('Could not connect: ' . mysql_error());
-		}
-		echo 'Connected successfully';
-
-		$sql = "INSERT INTO games (id, game, date) VALUES (1, 'Blue Jays - Blue Jays', '2015-06-03')";
-
-		if (mysqli_query($conn, $sql)) {
-		    echo "New record created successfully";
-		} else {
-		    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-		}
-
-		mysqli_close($link);*/
-		$host = "localhost";
-		$username = "admin";
-		$password = "password";
-		$dbname = "mlbfree";
-
-		@ $db = new mysqli($host, $username, $password, $dbname);
-
-		if(mysqli_connect_errno())
-		{
-		    die("Connection could not be established");
-		}
-
-		$query = "SELECT game FROM games";// WHERE id = 1";
-		$result = $db->query($query);
-
-		$total_num_rows = $result->num_rows;
-
-		echo "The Results Are : <br>";
-
-		while($row = $result->fetch_array())
-		{
-		    echo $row['game'];
-		}
-	}
+	// database table setup: http://i.imgur.com/MiVWzJa.png
 
 	// Gets free game from MLB
 	function getFreeGame($url) {
@@ -68,35 +29,80 @@
 		}
 	}
 
-	function toTwoDigitString($num) {
-		if ($num < 10) 
-			return '0' . (string)$num;
-		else
-			return (string)$num;
-	}
+	// updates the database with free games listed on mlb's website
+	function updateDatabase() {
+		// connect to database (WAMP) first
+		$host = "localhost";
+		$username = "admin";
+		$password = "password";
+		$dbname = "mlbfree";
 
-	function findFreeGame($team) {
+		@ $db = new mysqli($host, $username, $password, $dbname);
+
+		if(mysqli_connect_errno())
+		{
+		    die("Connection could not be established");
+		}
 
 		//http://www.mlb.com/gdcross/components/game/mlb/year_2015/month_05/day_30/grid.json
-		for ($month = 6; $month <= 6; $month++) {
-			// 6: 30, 7: 31, 8: 31, 9: 30
-			$count = 31;
-			if ($month == 6 or $month == 9)
-				$count = 30;
-			for ($day = 1; $day <= $count; $day++) {
-				$url = 'http://www.mlb.com/gdcross/components/game/mlb/year_2015/month_' . toTwoDigitString($month) . '/day_' . toTwoDigitString($day) . '/grid.json';
-				$todayGame = getFreeGame($url);
-				if (strpos($todayGame,$team) != false) {
-					print_r ($month . '/' . $day . '/15: ' . $todayGame . '!!!!!!');
-				}
-				else {
-					print_r ($month . '/' . $day . '/15: ' . $todayGame);
-				}
-				echo '<br/>';
-			}
-		}
+		for ($date = strtotime(date('Y-m-d')); $date < strtotime("2015-09-01"); $date = strtotime("+1 day", $date)) {
+ 			//get date values
+ 			$year = date('Y',$date);
+ 			$month = date('m',$date);
+ 			$day = date('d',$date);
+
+ 			$url = 'http://www.mlb.com/gdcross/components/game/mlb/year_' . $year . '/month_' . $month . '/day_' . $day . '/grid.json';
+			$todayGame = getFreeGame($url);
+
+			// no more games at the moment
+			if ($todayGame == 'No Free Game Scheduled Yet')
+				break;
+
+			// Figure out a way to insert or update if it already exists
+			//$query = 'INSERT OR REPLACE INTO games (game, date) VALUES (COALESCE((SELECT game FROM games WHERE date = \'' . date('Ymd',$date) . '\'), \'' . $todayGame . '\'),\'' . date('Ymd',$date) . '\');';
+			$query = 'INSERT INTO games (game, date) VALUES (\'' . $todayGame . '\',\'' . date('Ymd',$date) . '\');';
+			$db->query($query);
+ 		}
+
+		// close database connection
+		$db->close();
 	}
 
+	// finds all the free games for a given team
+	function findFreeGame($team) {
+		// connect to database (WAMP) first
+		$host = "localhost";
+		$username = "admin";
+		$password = "password";
+		$dbname = "mlbfree";
+
+		@ $db = new mysqli($host, $username, $password, $dbname);
+
+		if(mysqli_connect_errno())
+		{
+		    die("Connection could not be established");
+		}
+
+		// select the games that match the user team selection after today's date
+		$query = 'SELECT date,game FROM games WHERE game like \'%' . $team . '%\' and date >= \'' . date('Ymd') . '\' ORDER BY date;'; 
+		$result = $db->query($query);
+
+		if ($result->num_rows == 0) {
+			echo "There are no upcoming games";
+		}
+		else {
+			echo "The upcoming free games are: <br>";
+			while($row = $result->fetch_array()){
+			    echo $row['date'] . ': ' . $row['game'];
+			    echo "<br>";
+			}
+		}
+
+		// close database connection
+		$db->close();
+	}
+
+	// allow ajax calls from jquery
 	if (isset($_POST['callFunc'])) {
         echo findFreeGame($_POST['callFunc']);
     }
