@@ -1,0 +1,42 @@
+html,
+body {
+   /* width: 100%;
+    height: 100%;*/
+}
+
+body {
+    /*font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;
+    background: #17171b;*/
+}
+
+
+html, body, .container {
+    height: 100%;
+    width: 100%;
+    /*background:  #17171b;*/
+    color: #ffffff;
+    background-image:url("../img/BLUR.jpg");
+	background-size:cover;
+}
+.container {
+    display: table;
+    vertical-align: middle;
+}
+.vertical-center-row {
+    /*display: table-cell;*/
+    vertical-align: middle;
+}
+
+/* centered columns styles */
+.row-centered {
+    text-align:center;
+    vertical-align:middle;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+}
+
+input {
+	background-color: rgba(0,0,0,0.1);
+}
