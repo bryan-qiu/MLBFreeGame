@@ -102,7 +102,7 @@
 
 		while($row = $result->fetch_array()){
 				echo '<div class="card" id = "' . $row['game'] . '">';
-			    echo $row['date'] . ': ' . $row['game'];
+			    echo '<p>' . $row['date'] . ': ' . $row['game'] . '</p>';
 			    echo '</div>';
 		}
 
