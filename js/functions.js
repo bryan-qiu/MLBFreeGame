@@ -1,21 +1,28 @@
-function hideTeam(team) {
+function hideTeams(query) {
   $('.card').each(function() {
-    var id = $(this).attr('id');
+    var id = $(this).attr('id').toLowerCase();
+    query = query.toLowerCase();
     // make the card visible
-    if (id.indexOf(team) >= 0) {
-      if ($(this).hasClass('hidden'))
-        $(this).removeClass('hidden');
+    if (id.indexOf(query) >= 0) {
+        if ($(this).hasClass('hidden')) {
+          $(this).slideToggle('slow');
+          $(this).removeClass('hidden');
+        }
+      
     }
     // hide the card
     else {
-      $(this).addClass('hidden');
+        if (!$(this).hasClass('hidden')) {
+          $(this).slideToggle('slow');
+          $(this).addClass('hidden');
+        }
     }
   });
 }
 
 $(document).ready(function() {
   // do this from database later?
-  var teams = [
+  /*var teams = [
       "Orioles",
       "Red Sox",
       "White Sox",
@@ -52,7 +59,10 @@ $(document).ready(function() {
       select: function(event,ui) {
         hideTeam(ui.item.value);
       }
+  });*/
+
+  $('#tags').keyup(function() {
+
+    hideTeams($(this).val());
   });
 });
-
-

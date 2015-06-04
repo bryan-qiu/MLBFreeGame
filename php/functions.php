@@ -1,6 +1,6 @@
 <?php
 
-	// database table setup: http://i.imgur.com/MiVWzJa.png
+	// database table setup: http://i.imgur.com/SCQcG6G.png
 
 	// Gets free game from MLB
 	function getFreeGame($url) {
@@ -23,7 +23,8 @@
 
 			foreach ($game['game_media']['homebase']['media'] as $media) {
 				if (!empty($media['free']) && $media['free'] == 'ALL') {
-					return $game['home_team_name'] . " - " . $game['away_team_name'];
+					//return $game['home_team_name'] . " - " . $game['away_team_name'];
+					return $game;
 				}
 			}
 		}
@@ -58,9 +59,14 @@
 			if ($todayGame == 'No Free Game Scheduled Yet')
 				break;
 
+			$home_team = $todayGame['home_team_name'];
+			$away_team = $todayGame['away_team_name'];
+			$time = $todayGame['event_time'];
+			$venue = $todayGame['venue'];
+
 			// Figure out a way to insert or update if it already exists
 			//$query = 'INSERT OR REPLACE INTO games (game, date) VALUES (COALESCE((SELECT game FROM games WHERE date = \'' . date('Ymd',$date) . '\'), \'' . $todayGame . '\'),\'' . date('Ymd',$date) . '\');';
-			$query = 'INSERT INTO games (game, date) VALUES (\'' . $todayGame . '\',\'' . date('Ymd',$date) . '\');';
+			$query = 'INSERT INTO games (date,home_team,away_team,time,venue) VALUES (\'' . date('Ymd',$date) . '\',\'' . $home_team . '\',\'' . $away_team . '\',\'' . $time . '\',\'' . $venue . '\');';
 			$db->query($query);
  		}
 
@@ -86,7 +92,7 @@
 		// select the games that match the user team selection after today's date
 		//$query = 'SELECT date,game FROM games WHERE game like \'%' . $team . '%\' and date >= \'' . date('Ymd') . '\' ORDER BY date;'; 
 
-		$query = 'SELECT date,game FROM games WHERE date >= \'' . date('Ymd') . '\' ORDER BY date;'; 
+		$query = 'SELECT * FROM games WHERE date >= \'' . date('Ymd') . '\' ORDER BY date;'; 
 		$result = $db->query($query);
 
 		/*if ($result->num_rows == 0) {
@@ -100,16 +106,9 @@
 			}
 		}*/
 
-		while($row = $result->fetch_array()){
-				echo '<div class="card" id = "' . $row['game'] . '">';
-			    echo '<p>' . $row['date'] . ': ' . $row['game'] . '</p>';
-			    echo '</div>';
-		}
-
-	
-
 		// close database connection
 		$db->close();
+		return $result;
 	}
 
 	// allow ajax calls from jquery
