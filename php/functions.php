@@ -69,7 +69,7 @@
 	}
 
 	// finds all the free games for a given team
-	function findFreeGame($team) {
+	function getFreeGames() {
 		// connect to database (WAMP) first
 		$host = "localhost";
 		$username = "admin";
@@ -84,10 +84,12 @@
 		}
 
 		// select the games that match the user team selection after today's date
-		$query = 'SELECT date,game FROM games WHERE game like \'%' . $team . '%\' and date >= \'' . date('Ymd') . '\' ORDER BY date;'; 
+		//$query = 'SELECT date,game FROM games WHERE game like \'%' . $team . '%\' and date >= \'' . date('Ymd') . '\' ORDER BY date;'; 
+
+		$query = 'SELECT date,game FROM games WHERE date >= \'' . date('Ymd') . '\' ORDER BY date;'; 
 		$result = $db->query($query);
 
-		if ($result->num_rows == 0) {
+		/*if ($result->num_rows == 0) {
 			echo "There are no upcoming games";
 		}
 		else {
@@ -96,7 +98,15 @@
 			    echo $row['date'] . ': ' . $row['game'];
 			    echo "<br>";
 			}
+		}*/
+
+		while($row = $result->fetch_array()){
+				echo '<div class="card" id = "' . $row['game'] . '">';
+			    echo $row['date'] . ': ' . $row['game'];
+			    echo '</div>';
 		}
+
+	
 
 		// close database connection
 		$db->close();
