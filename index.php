@@ -48,7 +48,9 @@
 			    echo '<div class = "text">';
 			    echo '<p>' . $row['away_team'] . ' @ ' . $row['home_team'] . '<br>';
 			    echo $row['date'] . ' ' . $row['time'] . '<br>';
-			    echo $row['venue'] . '</p>';
+			    echo $row['venue'] . '<br>';
+			    //http://m.mlb.com/tv/e14-414458-2015-06-04/?&media_type=video&clickOrigin=Media%20Grid&team=mlb
+			    echo '<a href="http://m.mlb.com/tv/e' . $row['event_id'] . '/?&media_type=video&clickOrigin=Media%20Grid&team=mlb" target="_blank">Watch Here</a></p>';
 			    echo '</div>';
 
 				$homeurl = '&quot;./img/' . $row['home_team'] . '.jpg&quot;';
@@ -56,9 +58,6 @@
 			    
 			    echo '</div>';
 			}
-
-	
   		?>
-		<!-- http://stackoverflow.com/questions/10213095/how-to-animate-divs-when-they-move-to-fill-empty-space-left-by-other-divs-that-f -->
   	</body>
 </html>

@@ -1,6 +1,6 @@
 <?php
 
-	// database table setup: http://i.imgur.com/SCQcG6G.png
+	// database table setup: http://i.imgur.com/Mcb3aWm.png
 
 	// Gets free game from MLB
 	function getFreeGame($url) {
@@ -63,10 +63,11 @@
 			$away_team = $todayGame['away_team_name'];
 			$time = $todayGame['event_time'];
 			$venue = $todayGame['venue'];
+			$event_id = $todayGame['calendar_event_id'];
 
 			// Figure out a way to insert or update if it already exists
 			//$query = 'INSERT OR REPLACE INTO games (game, date) VALUES (COALESCE((SELECT game FROM games WHERE date = \'' . date('Ymd',$date) . '\'), \'' . $todayGame . '\'),\'' . date('Ymd',$date) . '\');';
-			$query = 'INSERT INTO games (date,home_team,away_team,time,venue) VALUES (\'' . date('Ymd',$date) . '\',\'' . $home_team . '\',\'' . $away_team . '\',\'' . $time . '\',\'' . $venue . '\');';
+			$query = 'INSERT INTO games (date,home_team,away_team,time,venue,event_id) VALUES (\'' . date('Ymd',$date) . '\',\'' . $home_team . '\',\'' . $away_team . '\',\'' . $time . '\',\'' . $venue . '\',\'' . $event_id . '\');';
 			$db->query($query);
  		}
 
