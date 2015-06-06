@@ -6,6 +6,7 @@ function hideTeams(query) {
     if (id.indexOf(query) >= 0) {
         if ($(this).hasClass('hidden')) {
           $(this).slideToggle('slow');
+          //$(this).animate({width: 'toggle'});
           $(this).removeClass('hidden');
         }
       
@@ -19,6 +20,7 @@ function hideTeams(query) {
     }
   });
 }
+
 
 $(document).ready(function() {
   // do this from database later?
@@ -62,7 +64,20 @@ $(document).ready(function() {
   });*/
 
   $('#tags').keyup(function() {
-
-    hideTeams($(this).val());
+     hideTeams($(this).val());
   });
+
+  //https://css-tricks.com/examples/jQueryStop/
+  $('.card').hover(function(){
+      $(this).find('.awaypic').filter(':not(:animated)').animate({ width: "0px" });
+      $(this).find('.homepic').filter(':not(:animated)').animate({ width: "0px" });
+      //$(this).find('.vs').toggleClass('hidden');
+  }, function() {
+      $(this).find('.awaypic').animate({ width: "50%" });
+      $(this).find('.homepic').animate({ width: "50%" });
+      //$(this).find('.vs').toggleClass('hidden');
+  });
+
+  //make sure that card width is always even
+
 });

@@ -16,7 +16,7 @@
 		<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> -->
 
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	  	<!-- <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> -->
+	  	<!-- <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> -->	
 	  	<script type="text/javascript" src="./js/functions.js"></script>
 		<meta name="description" content="Search MLB.TV's free game of the game"/>
 		<meta name="author" content="Bryan Qiu"/>
@@ -41,6 +41,8 @@
 
 			while($row = $result->fetch_array()){
 				echo '<div class="card" id = "' . $row['away_team'] . '-' . $row['home_team'] .'">';
+
+				
 				
 				$awayurl = '&quot;./img/' . $row['away_team'] . '.jpg&quot;';
 				echo '<div id="away-team" style="background:url(' . $awayurl . ') no-repeat center center;"></div>';
@@ -55,7 +57,11 @@
 
 				$homeurl = '&quot;./img/' . $row['home_team'] . '.jpg&quot;';
 				echo '<div id="home-team" style="background:url(' . $homeurl . ') no-repeat center center;"></div>';
-			    
+
+				echo '<div class="awaypic" style="background-color:blue"></div>';
+				echo '<div class="homepic" style="background-color:green"></div>';
+				//echo '<div class="vs"><p>vs</p></div>';
+
 			    echo '</div>';
 			}
   		?>
