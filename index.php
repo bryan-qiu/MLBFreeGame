@@ -42,14 +42,16 @@
 			while($row = $result->fetch_array()){
 				echo '<div class="card" id = "' . $row['away_team'] . '-' . $row['home_team'] .'">';
 
-				
+				echo '<div class="date"><p>' . date('F j',strtotime($row['date'])) . '</p></div>';
+
+				echo '<div class="whitebackground">';
 				
 				$awayurl = '&quot;./img/' . $row['away_team'] . '.jpg&quot;';
 				echo '<div id="away-team" style="background:url(' . $awayurl . ') no-repeat center center;"></div>';
 			    
 			    echo '<div class = "text">';
 			    echo '<p>' . $row['away_team'] . ' @ ' . $row['home_team'] . '<br>';
-			    echo $row['date'] . ' ' . $row['time'] . '<br>';
+			    echo $row['time'] . '<br>';
 			    echo $row['venue'] . '<br>';
 			    //http://m.mlb.com/tv/e14-414458-2015-06-04/?&media_type=video&clickOrigin=Media%20Grid&team=mlb
 			    echo '<a href="http://m.mlb.com/tv/e' . $row['event_id'] . '/?&media_type=video&clickOrigin=Media%20Grid&team=mlb" target="_blank">Watch Here</a></p>';
@@ -64,6 +66,8 @@
 				echo '<div class="homepic"></div>';
 				echo '<div class="homepicteam"></div>';
 				//echo '<div class="vs"><p>vs</p></div>';
+
+				echo '</div>';
 
 			    echo '</div>';
 			}

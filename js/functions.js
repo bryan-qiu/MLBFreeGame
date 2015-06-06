@@ -87,9 +87,9 @@ $(document).ready(function() {
       //$(this).find('.vs').toggleClass('hidden');
   }, function() {
       $(this).find('.awaypic').animate({ width: "47%" });
-      $(this).find('.awaypicteam').animate({ width: "45%" });
+      $(this).find('.awaypicteam').animate({ width: "47%" });
       $(this).find('.homepic').animate({ width: "47%" });
-      $(this).find('.homepicteam').animate({ width: "45%" });
+      $(this).find('.homepicteam').animate({ width: "47%" });
       //$(this).find('.homepic').animate({ width: homewidth});
       //$(this).find('.vs').toggleClass('hidden');
   });
