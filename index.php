@@ -58,8 +58,11 @@
 				$homeurl = '&quot;./img/' . $row['home_team'] . '.jpg&quot;';
 				echo '<div id="home-team" style="background:url(' . $homeurl . ') no-repeat center center;"></div>';
 
-				echo '<div class="awaypic" style="background-color:blue"></div>';
-				echo '<div class="homepic" style="background-color:green"></div>';
+				//echo '<div class="awaypic" style="background-color:blue"></div>';
+				echo '<div class="awaypic"></div>';
+				echo '<div class="awaypicteam"></div>';
+				echo '<div class="homepic"></div>';
+				echo '<div class="homepicteam"></div>';
 				//echo '<div class="vs"><p>vs</p></div>';
 
 			    echo '</div>';

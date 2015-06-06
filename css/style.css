@@ -44,6 +44,9 @@ input {
     opacity:1;
     display:block;
 
+    cursor:pointer;
+    cursor:hand;
+
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.4);
 }
 
@@ -76,24 +79,61 @@ input {
 
 .awaypic {
     display:inline-block;
-    width:50%;
+    width:47%;
     height:100%;
     z-index:2;
     vertical-align: top;
     position:absolute;
     left:0;
+
+    border-top: 120px solid #FC4E04;
+    border-right: 60px solid transparent;
+    height:0;
 }
+
+.awaypicteam {
+    display:inline-block;
+    width:45%;
+    height:100%;
+    z-index:2;
+    vertical-align: top;
+    position:absolute;
+    left: 0;
+
+    background:url("../img/orioles2.png") no-repeat center center;
+    background-size:140px;
+}
+/* https://css-tricks.com/examples/ShapesOfCSS/ */
 
 .homepic {
     display:inline-block;
-    width:50%;
+    width:47%;
     height:100%;
     position:relative;
     z-index:2;
     vertical-align: top;
     position:absolute;
     right:0;
+
+    border-bottom: 120px solid #C6122C;
+    border-left: 60px solid transparent;
+    height:0;
+
 }
+
+.homepicteam {
+    display:inline-block;
+    width:45%;
+    height:100%;
+    z-index:2;
+    vertical-align: top;
+    position:absolute;
+    right:0;
+
+    background:url("../img/red sox2.png") no-repeat center center;
+    background-size:180px;
+}
+
 
 .vs {
     display:inline-block;
@@ -114,8 +154,4 @@ input {
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-}
-
-.hidden {
-    visibility:hidden;
 }
