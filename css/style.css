@@ -124,7 +124,6 @@ input {
     vertical-align: top;
     position:absolute;
 
-    border-top: 120px solid #FC4E04;
     border-right: 60px solid transparent;
     height:0;
 }
@@ -136,9 +135,6 @@ input {
     z-index:2;
     vertical-align: top;
     position:absolute;
-
-    background:url("../img/orioles2.png") no-repeat center center;
-    background-size:140px;
 }
 /* https://css-tricks.com/examples/ShapesOfCSS/ */
 
@@ -152,7 +148,6 @@ input {
     position:absolute;
     right:0;
 
-    border-bottom: 120px solid #C6122C;
     border-left: 60px solid transparent;
     height:0;
 
@@ -166,9 +161,6 @@ input {
     vertical-align: top;
     position:absolute;
     right:0;
-
-    background:url("../img/red sox2.png") no-repeat center center;
-    background-size:180px;
 }
 
 

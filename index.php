@@ -38,6 +38,7 @@
 
   		<?php
   			$result = getFreeGames();
+  			$backmap = getBackMap();
 
 			while($row = $result->fetch_array()){
 				echo '<div class="card" id = "' . $row['away_team'] . '-' . $row['home_team'] .'">';
@@ -61,10 +62,15 @@
 				echo '<div id="home-team" style="background:url(' . $homeurl . ') no-repeat center center;"></div>';
 
 				//echo '<div class="awaypic" style="background-color:blue"></div>';
-				echo '<div class="awaypic"></div>';
-				echo '<div class="awaypicteam"></div>';
-				echo '<div class="homepic"></div>';
-				echo '<div class="homepicteam"></div>';
+
+
+				$awayurl2 = '&quot;./img/' . $row['away_team'] . '2.png&quot;';
+				$homeurl2 = '&quot;./img/' . $row['home_team'] . '2.png&quot;';
+
+				echo '<div class="awaypic" style="border-top: 120px solid' . $backmap[$row['away_team']] . ';"></div>';
+				echo '<div class="awaypicteam"style="background:url(' . $awayurl2 . ') no-repeat center center; background-size: 250px;"></div>';
+				echo '<div class="homepic" style="border-bottom: 120px solid' . $backmap[$row['home_team']] . ';"></div>';
+				echo '<div class="homepicteam"style="background:url(' . $homeurl2 . ') no-repeat center center; background-size: 250px;"></div>';
 				//echo '<div class="vs"><p>vs</p></div>';
 
 				echo '</div>';

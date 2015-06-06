@@ -112,6 +112,42 @@
 		return $result;
 	}
 
+	function getBackMap() {
+		$backmap = [
+		    "Orioles" => "#FC4E04",
+		    "Red Sox" => "#C6122C",
+		    "White Sox" => "#A4AAAC",
+		    "Indians" => "#002144",
+		    "Tigers" => "#949E9C",
+		    "Astros" => "#E24912",
+		    "Royals" => "#67ABE5",
+		    "Angels" => "#B80E2C",
+		    "Twins" => "#002144",
+		    "Yankees" => "#A5ACB0",
+		    "Athletics" => "#B0B6BB",
+		    "Mariners" => "#002A5C",
+		    "Rays" => "#001D42",
+		    "Rangers" => "#002B73",
+		    "Blue Jays" => "#003DA5",
+		    "Diamondbacks" => "#A8152B",
+		    "Braves" => "#F4F2DC",
+		    "Cubs" => "#929F9F",
+		    "Reds" => "#EC164C",
+		    "Rockies" => "#030204",
+		    "Dodgers" => "#032D6B",
+		    "Marlins" => "#F9433C",
+		    "Brewers" => "#00225D",
+		    "Mets" => "#002C74",
+		    "Phillies" => "#D31145",
+		    "Pirates" => "#231F20",
+		    "Padres" => "#041E44",
+		    "Giants" => "#FC4614",
+		    "Cardinals" => "#002A5C",
+		    "Nationals" => "#052048",
+		];
+		return $backmap;
+	}
+
 	// allow ajax calls from jquery
 	if (isset($_POST['callFunc'])) {
         echo findFreeGame($_POST['callFunc']);
