@@ -1,6 +1,5 @@
 
 @import url('http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
-
 body {
    
     /*background:  #17171b;*/
@@ -20,18 +19,52 @@ body {
     user-select: none;
 }
 
-label {
+
+.navbar {
+    background-image:url("../img/blur2.png");
+    /*background: red;*/
     text-align:center;
-    display:block;
+    width: auto;
+    height:50px;
+    position:fixed;
+    left:0;
+    right: 0;
+    /*border-bottom: 1px solid #E0E4E7;*/
+    z-index:5;
 }
 
-input {
-	background-color: rgba(0,0,0,0.1);
-    color: white;
-    width: 50%;
+/*label {
+    text-align:center;
     display:block;
-    margin-left:auto;
+}*/
+
+input {
+    background: url('../img/search-dark.png') no-repeat 10px 6px #444;
+    border: 0 none;
+    font: bold 12px Arial,Helvetica,Sans-serif;
+    color: white;
+    width: 20%;
+    padding: 6px 15px 6px 35px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+
     margin-right:auto;
+    margin-left:auto;
+
+    position:relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+input:focus {
+    outline-width: 0;
 }
 
 .card {
@@ -97,6 +130,7 @@ input {
     display:table-cell;
     margin:0;
     vertical-align:middle;
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 
 .card #away-team {
@@ -150,7 +184,6 @@ input {
 
     border-left: 60px solid transparent;
     height:0;
-
 }
 
 .homepicteam {

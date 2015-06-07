@@ -148,6 +148,42 @@
 		return $backmap;
 	}
 
+	function getCity() {
+		$citymap = [
+		    "Orioles" => "Baltimore",
+		    "Red Sox" => "Boston",
+		    "White Sox" => "Chicago",
+		    "Indians" => "Cleveland",
+		    "Tigers" => "Detroit",
+		    "Astros" => "Houston",
+		    "Royals" => "Kansas City",
+		    "Angels" => "Los Angeles",
+		    "Twins" => "Minnesota",
+		    "Yankees" => "New York",
+		    "Athletics" => "Oakland",
+		    "Mariners" => "Seattle",
+		    "Rays" => "Tampa Bay",
+		    "Rangers" => "Texas",
+		    "Blue Jays" => "Toronto",
+		    "Diamondbacks" => "Arizona",
+		    "Braves" => "Atlanta",
+		    "Cubs" => "Chicago",
+		    "Reds" => "Cincinnati",
+		    "Rockies" => "Colorado",
+		    "Dodgers" => "Los Angeles",
+		    "Marlins" => "Miami",
+		    "Brewers" => "Milwaukee",
+		    "Mets" => "New York",
+		    "Phillies" => "Philladelphia",
+		    "Pirates" => "Pittsburgh",
+		    "Padres" => "San Diego",
+		    "Giants" => "San Francisco",
+		    "Cardinals" => "St. Louis",
+		    "Nationals" => "Washington",
+		];
+		return $citymap;
+	}
+
 	// allow ajax calls from jquery
 	if (isset($_POST['callFunc'])) {
         echo findFreeGame($_POST['callFunc']);

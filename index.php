@@ -24,24 +24,25 @@
   	<body>
   		
 		<!-- <img src="./img/banner.png" /> -->
-
-		<br>
-		<br>
-
-	    <div>
-			<label for="tags">Teams: </label>
-			<input id="tags" name="tags">
+	    <div class="navbar">
+	   		<!-- <img src="./img/banner2.png" style="position:absolute; max-height:100%; left:0;"/>  -->
+    		<input id="tags" placeholder="Search Teams..." spellcheck="false"/>
+			<!-- <label for="tags">Teams: </label> -->
+			<!-- <input id="tags" name="tags"> -->
 	    </div>
 	    
+	    <br>
+	    <br>
 	    <br>
 	    <br>
 
   		<?php
   			$result = getFreeGames();
   			$backmap = getBackMap();
+  			$citymap = getCity();
 
 			while($row = $result->fetch_array()){
-				echo '<div class="card" id = "' . $row['away_team'] . '-' . $row['home_team'] .'">';
+				echo '<div class="card" id = "' . $citymap[$row['away_team']] . ' ' . $row['away_team'] . '-' . $citymap[$row['home_team']] . ' ' . $row['home_team'] .'">';
 
 				echo '<div class="date"><p>' . date('F j',strtotime($row['date'])) . '</p></div>';
 
