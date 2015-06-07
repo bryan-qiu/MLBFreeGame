@@ -85,7 +85,7 @@ input:focus {
 }
 
 .whitebackground {
-    background:white;
+    background: white;
     height:100%;
     right:0px;
     position:absolute;
@@ -108,6 +108,8 @@ input:focus {
     font-family: 'Open Sans Condensed', sans-serif;
     font-size:25px;
     font-weight:bold;
+
+
 }
 
 
@@ -117,25 +119,33 @@ input:focus {
 }
 
 .card .text {
+    background:url('../img/vs.png') no-repeat center center;
+    z-index:0;
+
     display:table;
-    width:40%;
+    table-layout: fixed;
+
+    width:50%;
     height:100%;
     text-align:center;
     float:left;
     position:absolute;
-    left:30%;
+    left:25%;
 }
 
 .card .text p {
     display:table-cell;
+    z-index:1;
     margin:0;
     vertical-align:middle;
     font-family: 'Open Sans Condensed', sans-serif;
+    font-size:20px;
+    width:33%;
 }
 
 .card #away-team {
     display:inline-block;
-    width:30%;
+    width:25%;
     height:100%;
     position:absolute;
     left:0%;
@@ -144,10 +154,10 @@ input:focus {
 
 .card #home-team {
     display:inline-block;
-    width:30%;
+    width:25%;
     height:100%;
     position:absolute;
-    left:70%;
+    left:75%;
 }
 
 .awaypic {

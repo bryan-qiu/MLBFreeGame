@@ -49,18 +49,28 @@
 				echo '<div class="whitebackground">';
 				
 				$awayurl = '&quot;./img/' . $row['away_team'] . '.jpg&quot;';
-				echo '<div id="away-team" style="background:url(' . $awayurl . ') no-repeat center center;"></div>';
+				echo '<div id="away-team" style="background:url(' . $awayurl . ') no-repeat center center; background-size:120px;"></div>';
 			    
 			    echo '<div class = "text">';
-			    echo '<p>' . $row['away_team'] . ' @ ' . $row['home_team'] . '<br>';
-			    echo $row['time'] . '<br>';
+			    echo '<p style="text-align:left;">' . $citymap[$row['away_team']] . '<br><span style="font-weight:bold">' . $row['away_team'] . '</span></p>';
+
+
+			    echo '<p>' . $row['time'] . '<br>';
 			    echo $row['venue'] . '<br>';
 			    //http://m.mlb.com/tv/e14-414458-2015-06-04/?&media_type=video&clickOrigin=Media%20Grid&team=mlb
 			    echo '<a href="http://m.mlb.com/tv/e' . $row['event_id'] . '/?&media_type=video&clickOrigin=Media%20Grid&team=mlb" target="_blank">Watch Here</a></p>';
+
+			    echo '<p style="text-align:right">' . $citymap[$row['home_team']] . '<br><span style="font-weight:bold">' . $row['home_team'] . '</span></p>';
+			    /*echo '<p>' . $row['away_team'] '</p>';. ' @ ' . $row['home_team'] . '<br>';
+			    echo $row['time'] . '<br>';
+			    echo $row['venue'] . '<br>';
+			    //http://m.mlb.com/tv/e14-414458-2015-06-04/?&media_type=video&clickOrigin=Media%20Grid&team=mlb
+			    echo '<a href="http://m.mlb.com/tv/e' . $row['event_id'] . '/?&media_type=video&clickOrigin=Media%20Grid&team=mlb" target="_blank">Watch Here</a></p>';*/
 			    echo '</div>';
 
 				$homeurl = '&quot;./img/' . $row['home_team'] . '.jpg&quot;';
-				echo '<div id="home-team" style="background:url(' . $homeurl . ') no-repeat center center;"></div>';
+				//$homeurl = '&quot;./img/orioles.jpg&quot;';
+				echo '<div id="home-team" style="background:url(' . $homeurl . ') no-repeat center center; background-size:120px;"></div>';
 
 				//echo '<div class="awaypic" style="background-color:blue"></div>';
 
