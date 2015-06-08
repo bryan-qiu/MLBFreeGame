@@ -21,8 +21,45 @@ function hideTeams(query) {
   });
 }
 
-function toTimezone(time) {
-  //new Date().getTimezoneOffset();
+
+function formatDay(time) {
+  var months = [ "Jan", "Feb", "Mar", "Apr", "May", "June", 
+               "July", "Aug", "Sept", "Oct", "Nov", "Dec" ];
+
+  date = new Date(time*1000);
+
+  hours = date.getHours();
+  minutes = date.getMinutes();
+
+  return months[date.getMonth()] + " " + date.getDate();
+}
+
+function formatTime(time) {
+    date = new Date(time*1000);
+
+    hours = date.getHours();
+    minutes = date.getMinutes();
+
+    if (hours == 0)
+      hours = 12;
+    else if (hours == 12)
+      hours = 24;
+
+    if (hours > 12) 
+      return hours-12 + ":" + minutes + " PM";
+    else
+      return hours + ":" + minutes + " AM";
+}       
+
+function toTimezone() {
+  offset = new Date().getTimezoneOffset();
+  $('.day').each(function() {
+    $(this).html(formatDay($(this).html()));
+  });
+
+  $('.time').each(function() {
+    $(this).html(formatTime($(this).html()));
+  });
 }
 
 $(document).ready(function() {
@@ -96,4 +133,6 @@ $(document).ready(function() {
       //$(this).find('.homepic').animate({ width: homewidth});
       //$(this).find('.vs').toggleClass('hidden');
   });  
+
+  toTimezone();
 });

@@ -48,7 +48,7 @@
 		?>
 		<div class="card" id=<?php echo '"' . $citymap[$row['away_team']] . ' ' . $row['away_team'] . '-' . $citymap[$row['home_team']] . ' ' . $row['home_team'] . '"'; ?>>
 			<div class="date">
-				<p><?php echo date('F j',strtotime($row['date'])); ?></p>
+				<p class="day"><?php echo strtotime($row['date'] . ' ' . $row['time']); ?></p>
 			</div>
 			<div class="whitebackground">
 				
@@ -61,7 +61,8 @@
 			    	</p>
 
 			    	<p>
-			    		<span style="font-weight:bold;"><?php echo $row['time']; ?></span><br>
+			    		<!--<span style="font-weight:bold;"><?php echo $row['time']; ?></span><br>-->
+			    		<span class="time" style="font-weight:bold;"><?php echo strtotime($row['date'] . ' ' . $row['time']); ?></span><br>
 			    		<?php echo $row['venue'];?><br>
 			    		<!-- http://m.mlb.com/tv/e14-414458-2015-06-04/?&media_type=video&clickOrigin=Media%20Grid&team=mlb -->
 			    		<a href=<?php echo '"http://m.mlb.com/tv/e' . $row['event_id'] . '/?&media_type=video&clickOrigin=Media%20Grid&team=mlb"'; ?> target="_blank">Watch Here</a>
