@@ -21,6 +21,9 @@ function hideTeams(query) {
   });
 }
 
+function toTimezone(time) {
+  //new Date().getTimezoneOffset();
+}
 
 $(document).ready(function() {
   // do this from database later?
@@ -92,9 +95,5 @@ $(document).ready(function() {
       $(this).find('.homepicteam').animate({ width: "47%" });
       //$(this).find('.homepic').animate({ width: homewidth});
       //$(this).find('.vs').toggleClass('hidden');
-  });
-
-  //make sure that card width is always even
-
-
+  });  
 });

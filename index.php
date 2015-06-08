@@ -37,56 +37,51 @@
 	    <br>
 
   		<?php
-  			$result = getFreeGames();
-  			$backmap = getBackMap();
-  			$citymap = getCity();
-
+		  	$result = getFreeGames();
+		  	$backmap = getBackMap();
+		  	$citymap = getCity();
 			while($row = $result->fetch_array()){
-				echo '<div class="card" id = "' . $citymap[$row['away_team']] . ' ' . $row['away_team'] . '-' . $citymap[$row['home_team']] . ' ' . $row['home_team'] .'">';
-
-				echo '<div class="date"><p>' . date('F j',strtotime($row['date'])) . '</p></div>';
-
-				echo '<div class="whitebackground">';
-				
-				$awayurl = '&quot;./img/' . $row['away_team'] . '.jpg&quot;';
-				echo '<div id="away-team" style="background:url(' . $awayurl . ') no-repeat center center; background-size:120px;"></div>';
-			    
-			    echo '<div class = "text">';
-			    echo '<p style="text-align:left;">' . $citymap[$row['away_team']] . '<br><span style="font-weight:bold">' . $row['away_team'] . '</span></p>';
-
-
-			    echo '<p>' . $row['time'] . '<br>';
-			    echo $row['venue'] . '<br>';
-			    //http://m.mlb.com/tv/e14-414458-2015-06-04/?&media_type=video&clickOrigin=Media%20Grid&team=mlb
-			    echo '<a href="http://m.mlb.com/tv/e' . $row['event_id'] . '/?&media_type=video&clickOrigin=Media%20Grid&team=mlb" target="_blank">Watch Here</a></p>';
-
-			    echo '<p style="text-align:right">' . $citymap[$row['home_team']] . '<br><span style="font-weight:bold">' . $row['home_team'] . '</span></p>';
-			    /*echo '<p>' . $row['away_team'] '</p>';. ' @ ' . $row['home_team'] . '<br>';
-			    echo $row['time'] . '<br>';
-			    echo $row['venue'] . '<br>';
-			    //http://m.mlb.com/tv/e14-414458-2015-06-04/?&media_type=video&clickOrigin=Media%20Grid&team=mlb
-			    echo '<a href="http://m.mlb.com/tv/e' . $row['event_id'] . '/?&media_type=video&clickOrigin=Media%20Grid&team=mlb" target="_blank">Watch Here</a></p>';*/
-			    echo '</div>';
-
-				$homeurl = '&quot;./img/' . $row['home_team'] . '.jpg&quot;';
-				//$homeurl = '&quot;./img/orioles.jpg&quot;';
-				echo '<div id="home-team" style="background:url(' . $homeurl . ') no-repeat center center; background-size:120px;"></div>';
-
-				//echo '<div class="awaypic" style="background-color:blue"></div>';
-
-
-				$awayurl2 = '&quot;./img/' . $row['away_team'] . '2.png&quot;';
+	  			$awayurl = '&quot;./img/' . $row['away_team'] . '.jpg&quot;';
+	  			$homeurl = '&quot;./img/' . $row['home_team'] . '.jpg&quot;';
+	  			$awayurl2 = '&quot;./img/' . $row['away_team'] . '2.png&quot;';
 				$homeurl2 = '&quot;./img/' . $row['home_team'] . '2.png&quot;';
+		?>
+		<div class="card" id=<?php echo '"' . $citymap[$row['away_team']] . ' ' . $row['away_team'] . '-' . $citymap[$row['home_team']] . ' ' . $row['home_team'] . '"'; ?>>
+			<div class="date">
+				<p><?php echo date('F j',strtotime($row['date'])); ?></p>
+			</div>
+			<div class="whitebackground">
+				
+				<div id="away-team" style=<?php echo '"background:url(' . $awayurl . ') no-repeat center center; background-size:120px;"'; ?>></div>
+			 
+			    <div class = "text">
+			    	<p style="text-align:left;">
+			    		<span><?php echo $citymap[$row['away_team']]; ?></span><br>
+			    		<span style="font-weight:bold"><?php echo $row['away_team']; ?></span>
+			    	</p>
 
-				echo '<div class="awaypic" style="border-top: 120px solid' . $backmap[$row['away_team']] . ';"></div>';
-				echo '<div class="awaypicteam"style="background:url(' . $awayurl2 . ') no-repeat center center; background-size: 250px;"></div>';
-				echo '<div class="homepic" style="border-bottom: 120px solid' . $backmap[$row['home_team']] . ';"></div>';
-				echo '<div class="homepicteam"style="background:url(' . $homeurl2 . ') no-repeat center center; background-size: 250px;"></div>';
-				//echo '<div class="vs"><p>vs</p></div>';
-
-				echo '</div>';
-
-			    echo '</div>';
+			    	<p>
+			    		<span style="font-weight:bold;"><?php echo $row['time']; ?></span><br>
+			    		<?php echo $row['venue'];?><br>
+			    		<!-- http://m.mlb.com/tv/e14-414458-2015-06-04/?&media_type=video&clickOrigin=Media%20Grid&team=mlb -->
+			    		<a href=<?php echo '"http://m.mlb.com/tv/e' . $row['event_id'] . '/?&media_type=video&clickOrigin=Media%20Grid&team=mlb"'; ?> target="_blank">Watch Here</a>
+			    	</p>
+ 
+			    	<p style="text-align:right">
+			    		<span><?php echo $citymap[$row['home_team']]; ?></span><br>
+			    		<span style="font-weight:bold"><?php echo $row['home_team']; ?></span>
+			    	</p>
+			    </div>
+	
+				<div id="home-team" style=<?php echo '"background:url(' . $homeurl . ') no-repeat center center; background-size:120px;"'; ?>></div>
+				
+				<div class="awaypic" style=<?php echo '"border-top: 120px solid' . $backmap[$row['away_team']] . ';"'; ?>></div>
+				<div class="awaypicteam"style=<?php echo '"background:url(' . $awayurl2 . ') no-repeat center center; background-size: 250px;"'; ?>></div>
+				<div class="homepic" style=<?php echo '"border-bottom: 120px solid' . $backmap[$row['home_team']] . ';"'; ?>></div>
+				<div class="homepicteam"style=<?php echo '"background:url(' . $homeurl2 . ') no-repeat center center; background-size: 250px;"'; ?>></div>
+			</div>
+		</div>
+		<?php
 			}
   		?>
   	</body>

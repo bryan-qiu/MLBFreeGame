@@ -1,5 +1,6 @@
-
 @import url('http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+@import url('http://fonts.googleapis.com/css?family=Open+Sans');
+
 body {
    
     /*background:  #17171b;*/
@@ -9,6 +10,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     margin:0;
+    min-width:768px;
 
     /* no highlighting */
     -webkit-touch-callout: none;
@@ -25,7 +27,7 @@ body {
     /*background: red;*/
     text-align:center;
     width: auto;
-    height:50px;
+    height:70px;
     position:fixed;
     left:0;
     right: 0;
@@ -39,11 +41,11 @@ body {
 }*/
 
 input {
-    background: url('../img/search-dark.png') no-repeat 10px 6px #444;
+    background: url('../img/search-dark.png') no-repeat 10px center #444444;
     border: 0 none;
-    font: bold 12px Arial,Helvetica,Sans-serif;
+    font: bold 14px 'Open Sans',Sans-serif;
     color: white;
-    width: 20%;
+    width: 25%;
     padding: 6px 15px 6px 35px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
@@ -52,6 +54,8 @@ input {
     -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
     -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+
+    height:25px;
 
     margin-right:auto;
     margin-left:auto;
@@ -70,7 +74,7 @@ input:focus {
 .card {
     /*background:white;*/
     color:black;
-    width: 60%;
+    width: 65%;
     margin-left:auto;
     margin-right:auto;
     margin-bottom:10px;
@@ -80,8 +84,15 @@ input:focus {
     opacity:1;
     display:block;
 
-    cursor:pointer;
-    cursor:hand;
+    /* doesn't work... http://stackoverflow.com/questions/6421966/ */
+    overflow-x:visible !important;
+}
+
+
+@media all and (max-width: 1024px) {
+    .card {
+        width:85%;
+    }
 }
 
 .whitebackground {
@@ -99,7 +110,7 @@ input:focus {
     background:transparent;
     
     position:absolute;
-    left:0;
+    left:-5px;
     height:100%;
     width:5%;
     text-align:center;
@@ -108,7 +119,6 @@ input:focus {
     font-family: 'Open Sans Condensed', sans-serif;
     font-size:25px;
     font-weight:bold;
-
 
 }
 
@@ -141,6 +151,26 @@ input:focus {
     font-family: 'Open Sans Condensed', sans-serif;
     font-size:20px;
     width:33%;
+}
+
+.card .text p a {
+    background-color:#444444;
+    opacity:0.8;
+    color:#ffffff;
+    padding: 0px 5px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #2f6627;
+
+    cursor:pointer;
+    cursor:hand;
+}
+
+.card .text p a:hover {
+    background-color:#696969;
+}
+.card .text p a:active {
+    position:relative;
+    top:1px;
 }
 
 .card #away-team {

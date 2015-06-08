@@ -1,4 +1,7 @@
 <?php
+	
+	// sets default time for game times
+	date_default_timezone_set('America/Toronto');
 
 	// database table setup: http://i.imgur.com/Mcb3aWm.png
 
@@ -183,9 +186,4 @@
 		];
 		return $citymap;
 	}
-
-	// allow ajax calls from jquery
-	if (isset($_POST['callFunc'])) {
-        echo findFreeGame($_POST['callFunc']);
-    }
 ?>
