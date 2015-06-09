@@ -25,6 +25,7 @@
   		
 		<!-- <img src="./img/banner.png" /> -->
 	    <div class="navbar">
+	    	<p>MLB Free Game of the Day</p>
 	   		<!-- <img src="./img/banner2.png" style="position:absolute; max-height:100%; left:0;"/>  -->
     		<input id="tags" placeholder="Search Teams..." spellcheck="false"/>
 			<!-- <label for="tags">Teams: </label> -->
@@ -35,6 +36,11 @@
 	    <br>
 	    <br>
 	    <br>
+	    <br>
+	    <br>
+	    <br>
+
+	    <div id="nogames"></div>
 
   		<?php
 		  	$result = getFreeGames();

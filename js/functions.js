@@ -21,6 +21,12 @@ function hideTeams(query) {
   });
 }
 
+function checkGames() {
+  if ($(".card" ).length == 0)
+    $('#nogames').html("There are no free games coming up at the moment.");
+  else
+    $('#nogames').html("");
+}
 
 function formatDay(time) {
   var months = [ "Jan", "Feb", "Mar", "Apr", "May", "June", 
@@ -28,10 +34,10 @@ function formatDay(time) {
 
   date = new Date(time*1000);
 
-  hours = date.getHours();
-  minutes = date.getMinutes();
+  month = date.getMonth();
+  day = date.getDate();
 
-  return months[date.getMonth()] + " " + date.getDate();
+  return months[month] + " " + day;
 }
 
 function formatTime(time) {
@@ -45,10 +51,17 @@ function formatTime(time) {
     else if (hours == 12)
       hours = 24;
 
-    if (hours > 12) 
-      return hours-12 + ":" + minutes + " PM";
+    min = "";
+
+    if (minutes < 10)
+      min = "0" + minutes;
     else
-      return hours + ":" + minutes + " AM";
+      min = minutes;
+
+    if (hours > 12) 
+      return hours-12 + ":" + min + " PM";
+    else
+      return hours + ":" + min + " AM";
 }       
 
 function toTimezone() {
@@ -103,8 +116,12 @@ $(document).ready(function() {
       }
   });*/
 
+
+  checkGames();
+
   $('#tags').keyup(function() {
      hideTeams($(this).val());
+     checkGames();
   });
 
 

@@ -27,12 +27,23 @@ body {
     /*background: red;*/
     text-align:center;
     width: auto;
-    height:70px;
+    height:120px;
     position:fixed;
     left:0;
     right: 0;
     /*border-bottom: 1px solid #E0E4E7;*/
     z-index:5;
+}
+
+.navbar p {
+    position:absolute;
+    top:10px;
+    margin:0;
+    left:0;
+    right:0;
+    display:block;
+    font: bold 48px 'Open Sans Condensed',Sans-serif;
+    color: white;
 }
 
 /*label {
@@ -43,7 +54,7 @@ body {
 input {
     background: url('../img/search-dark.png') no-repeat 10px center #444444;
     border: 0 none;
-    font: bold 14px 'Open Sans',Sans-serif;
+    font: bold 18px 'Open Sans Condensed',Sans-serif;
     color: white;
     width: 25%;
     padding: 6px 15px 6px 35px;
@@ -60,15 +71,25 @@ input {
     margin-right:auto;
     margin-left:auto;
 
-    position:relative;
+    /*position:relative;
     top: 50%;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    transform: translateY(-50%);*/
+    position:absolute;
+    bottom:10px;
+    left:0;
+    right:0;
 }
 
 input:focus {
     outline-width: 0;
+}
+
+#nogames {
+    font: bold 20px 'Open Sans Condensed',Sans-serif;
+    color: white;
+    text-align:center;
 }
 
 .card {
@@ -92,6 +113,12 @@ input:focus {
 @media all and (max-width: 1024px) {
     .card {
         width:85%;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .navbar {
+        width:768px;
     }
 }
 

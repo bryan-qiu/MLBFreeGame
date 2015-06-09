@@ -45,10 +45,10 @@
 
 		if(mysqli_connect_errno())
 		{
-		    die("Connection could not be established");
+		    //die("Connection could not be established");
+		    die("");
 		}
 
-		//http://www.mlb.com/gdcross/components/game/mlb/year_2015/month_05/day_30/grid.json
 		for ($date = strtotime(date('Y-m-d')); $date < strtotime("2015-09-01"); $date = strtotime("+1 day", $date)) {
  			//get date values
  			$year = date('Y',$date);
@@ -116,7 +116,7 @@
 	}
 
 	function getBackMap() {
-		$backmap = [
+		$backmap = array(
 		    "Orioles" => "#FC4E04",
 		    "Red Sox" => "#C6122C",
 		    "White Sox" => "#A4AAAC",
@@ -147,12 +147,12 @@
 		    "Giants" => "#FC4614",
 		    "Cardinals" => "#002A5C",
 		    "Nationals" => "#052048",
-		];
+		);
 		return $backmap;
 	}
 
 	function getCity() {
-		$citymap = [
+		$citymap = array(
 		    "Orioles" => "Baltimore",
 		    "Red Sox" => "Boston",
 		    "White Sox" => "Chicago",
@@ -183,7 +183,7 @@
 		    "Giants" => "San Francisco",
 		    "Cardinals" => "St. Louis",
 		    "Nationals" => "Washington",
-		];
+		);
 		return $citymap;
 	}
 ?>
