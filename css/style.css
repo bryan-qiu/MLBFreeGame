@@ -1,14 +1,20 @@
 @import url('http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
-@import url('http://fonts.googleapis.com/css?family=Open+Sans');
+
+html {
+    
+    background: url("../img/blur2.jpg") no-repeat fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 
 body {
-   
+
     /*background:  #17171b;*/
     color: #ffffff;
-    background-image:url("../img/blur2.png");
+
     overflow-y: scroll; 
-    background-repeat: no-repeat;
-    background-attachment: fixed;
     margin:0;
     min-width:768px;
 
@@ -23,15 +29,17 @@ body {
 
 
 .navbar {
-    background-image:url("../img/blur2.png");
-    /*background: red;*/
+    background: url("../img/blur2.jpg") no-repeat fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
     text-align:center;
-    width: auto;
     height:120px;
     position:fixed;
     left:0;
     right: 0;
-    /*border-bottom: 1px solid #E0E4E7;*/
     z-index:5;
 }
 
@@ -237,7 +245,6 @@ input:focus {
     vertical-align: top;
     position:absolute;
 }
-/* https://css-tricks.com/examples/ShapesOfCSS/ */
 
 .homepic {
     display:inline-block;
@@ -283,4 +290,14 @@ input:focus {
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+}
+
+.card .awaypic, .card .homepic, .card .awaypicteam, .card .homepicteam {
+    width: 47%;
+    transition: width 0.4s ease-in;
+}
+
+.card:hover .awaypic, .card:hover .homepic, .card:hover .awaypicteam, .card:hover .homepicteam {
+    width: 0;
+    transition-timing-function: ease-out;
 }
