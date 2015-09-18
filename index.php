@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <?php 
 	include("./php/functions.php");
-	//updateDatabase();
+	//include("./php/update.php"); uncomment this for local testing
 ?>
+<!-- work in progress -->
 <html lang="en">
 	<head>
     	<meta charset="utf-8">
-	    <meta http-equiv="X-UA-Compatible" content="IE=edge">	
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="description" content="Website for checking the upcoming MLB.TV Free Game of the Days">	
 
 	    <title>MLB Free Game</title>
 
 	    <link rel="stylesheet" type="text/css" href="./css/style.css"/>
-	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	  	<script type="text/javascript" src="./js/functions.js"></script>
 	  	<script type="text/javascript" src="./js/analytics.js"></script>
 
 	  	
-		<meta name="viewport" content="width=640px, initial-scale=.5, maximum-scale=.5" />
+		<!--<meta name="viewport" content="width=640px, initial-scale=.5, maximum-scale=.5" />-->
+
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="Search MLB.TV's free game of the game"/>
 		<meta name="author" content="Bryan Qiu"/>
   	</head>
@@ -26,13 +30,7 @@
     		<input id="tags" placeholder="Search Teams..." spellcheck="false"/>
 	    </div>
 	    
-	    <br>
-	    <br>
-	    <br>
-	    <br>
-	    <br>
-	    <br>
-	    <br>
+	   	<div style="height:120px;"></div>
 
 	    <div id="nogames">
 	    	<p>There are no free games coming up at the moment.</p>

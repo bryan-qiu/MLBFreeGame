@@ -1,22 +1,17 @@
 @import url('http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
 
-html {
-    
-    background: url("../img/blur2.jpg") no-repeat fixed; 
+body {
+    background: url("../img/blur2.jpg") no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-}
-
-body {
-
-    /*background:  #17171b;*/
     color: #ffffff;
 
     overflow-y: scroll; 
     margin:0;
     min-width:768px;
+    min-height:100%;
 
     /* no highlighting */
     -webkit-touch-callout: none;
@@ -27,9 +22,8 @@ body {
     user-select: none;
 }
 
-
 .navbar {
-    background: url("../img/blur2.jpg") no-repeat fixed; 
+    background: url("../img/blur2.jpg") no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -54,11 +48,6 @@ body {
     color: white;
 }
 
-/*label {
-    text-align:center;
-    display:block;
-}*/
-
 input {
     background: url('../img/search-dark.png') no-repeat 10px center #444444;
     border: 0 none;
@@ -79,11 +68,6 @@ input {
     margin-right:auto;
     margin-left:auto;
 
-    /*position:relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);*/
     position:absolute;
     bottom:10px;
     left:0;
@@ -101,7 +85,6 @@ input:focus {
 }
 
 .card {
-    /*background:white;*/
     color:black;
     width: 65%;
     margin-left:auto;
@@ -112,11 +95,7 @@ input:focus {
     height:120px;
     opacity:1;
     display:block;
-
-    /* doesn't work... http://stackoverflow.com/questions/6421966/ */
-    overflow-x:visible !important;
 }
-
 
 @media all and (max-width: 1024px) {
     .card {
@@ -293,7 +272,7 @@ input:focus {
 }
 
 .card .awaypic, .card .homepic, .card .awaypicteam, .card .homepicteam {
-    width: 47%;
+    width: 50%;
     transition: width 0.4s ease-in;
 }
 

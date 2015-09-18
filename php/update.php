@@ -28,7 +28,8 @@
 	}
 
 	// connect to database first
-	$config = parse_ini_file("./liveconfig.ini");
+	$config = parse_ini_file("../liveconfig.ini");
+	//$config = parse_ini_file("./localconfig.ini");
 	$host = $config['host'];
 	$username = $config['username'];
 	$password = $config['password'];
@@ -41,7 +42,7 @@
 	    die("Connection could not be established");
 	}
 
-	for ($date = strtotime(date('Y-m-d')); $date < strtotime("2015-09-01"); $date = strtotime("+1 day", $date)) {
+	for ($date = strtotime(date('Y-m-d')); $date < strtotime("2015-11-01"); $date = strtotime("+1 day", $date)) {
 		//get date values
 		$year = date('Y',$date);
 		$month = date('m',$date);

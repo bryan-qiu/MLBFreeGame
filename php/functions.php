@@ -1,5 +1,4 @@
 <?php
-	
 	// sets default time for game times
 	date_default_timezone_set('America/Toronto');
 
@@ -8,8 +7,8 @@
 	// finds all the free games for a given team
 	function getFreeGames() {
 		// connect to database first
-
 		$config = parse_ini_file("./liveconfig.ini");
+		//$config = parse_ini_file("./localconfig.ini");
 		$host = $config['host'];
 		$username = $config['username'];
 		$password = $config['password'];
